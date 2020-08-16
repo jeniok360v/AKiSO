@@ -1,0 +1,80 @@
+﻿/Prompt user to type integers
+INPUT 
+Store X
+
+loop1,	Load i 
+	   	Subt X
+        Subt one
+        
+        Skipcond 000
+        JUMP end
+        
+        JUMP loop2
+        
+loop2,	Load j
+		Subt i
+        
+        SkipCond 000
+        JUMP primeOutput
+        
+        JUMP check1
+        
+check1,	Load i
+		Store number_i
+        
+        Load j 
+        Store number_j
+        
+        JUMP checkPrime
+        
+check2,	Skipcond 400
+		JUMP magniefier_j
+        
+        JUMP noPrime
+        
+checkPrime, Store number_i
+			Subt number_j
+            
+            Skipcond 000
+            JUMP checkPrime
+            
+            Load number_i
+            JUMP check2
+            
+magniefier_i,	Load i
+				Add one
+                Store i
+                
+				JUMP loop1
+                
+magniefier_j,	Load j
+				Add one 
+                Store j
+                
+                JUMP loop2
+               
+primeOutput,	Load i
+				Output
+				
+                Clear
+                
+                Add two 
+                Store j 
+                
+                JUMP magniefier_i
+
+noPrime,	Clear
+		
+        	Add two
+            Store j
+            JUMP magniefier_i
+            
+end,	Halt
+            
+X, DEC 0
+i, DEC 2
+j, DEC 2
+number_i, DEC 0
+number_j, DEC 0
+one, DEC 1
+two, DEC 2

@@ -1,0 +1,77 @@
+﻿Clear
+Input
+Store max
+
+
+for1,		Load index1
+			Subt max
+            Subt one
+			Skipcond 000	/ index1<=max  <==> index1-max-1<0
+			Jump end_for1
+            Jump for2
+            
+            
+            for2,		Load index2
+                        Subt index1
+                        Skipcond 000
+                        Jump end_for2
+                        Jump if_cond
+
+
+                        if_cond,
+                        Load index1
+                        Store div_rem_dividend
+                        Load index2
+                        Store div_rem_divisor
+                        Jns div_rem
+                        Skipcond 400
+                        Jump if
+                        Jump count_for2
+                    
+                    
+            count_for2,	Load index2
+						Add one
+				        Store index2
+	                    Jump for2
+                        
+            end_for2,
+            Clear
+            Add two
+            Store index2
+            Jump count_for1
+
+		
+count_for1, Load index1
+            Add one
+            Store index1
+            Jump for1
+          
+            
+            
+/*	div_rem		*/            
+/podprogram, przyznaczony do
+/znalezienia reszty z dzielenia
+div_rem_dividend,	Hex 0
+div_rem_divisor,	Hex 0
+div_rem,			Hex 0
+			Load div_rem_dividend
+			loop_div_rem,	
+            Store div_rem_dividend
+            Subt div_rem_divisor
+        	
+        	Skipcond 000
+        	Jump loop_div_rem
+            
+            Load div_rem_dividend
+            JumpI div_rem
+            
+            
+/variables
+one,	Hex 1
+two,	Hex 2
+
+max,	Hex 0
+index1,	Hex 2
+index2, Hex 2
+
+

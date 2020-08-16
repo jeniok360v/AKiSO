@@ -1,0 +1,28 @@
+﻿INPUT
+Store Dividend
+INPUT
+Store Divisor
+
+loop,	Load Dividend
+		Subt Divisor
+        Store Dividend
+        
+        Load Quotient
+		Add one
+        
+        
+        
+        Skipcond 800
+        Jump 
+        Jump loop
+
+
+Load num
+Output
+Halt
+
+Dividend,	DEC 0
+Divisor,	DEC 0
+Quotient,	DEC 0
+Remainder,	DEC 0
+one,		DEC 1
